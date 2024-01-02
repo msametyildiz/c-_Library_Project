@@ -42,11 +42,19 @@ namespace LibraryProject
                 MessageBox.Show("Your credentials are wrong!!");
                 return;
             }
+
+            this.Visible = false;
             UserDetail frmUserDetail = new UserDetail();
             frmUserDetail.activeUser = existingUser;
+
+            frmUserDetail.LogoutEvent += logoutHandle;
             frmUserDetail.ShowDialog();
 
 
+        }
+        public void logoutHandle()
+        {
+            this.Visible = true;
         }
     }
 }
